@@ -1,0 +1,40 @@
+@model IEnumerable<CRUD_MVC.Models.Contato>
+
+@{
+    ViewData["Title"] = "Contato";
+}
+
+<h1>Contatos</h1>
+
+<p>
+    <a asp-action="Criar" class="btn btn-primary">Novo Contato</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ContatoId)</th>
+            <th>@Html.DisplayNameFor(model => model.Nome)</th>
+            <th>@Html.DisplayNameFor(model => model.Telefone)</th>
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+            <th>@Html.DisplayNameFor(model => model.Ativo)</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+         @foreach(var item in Model){
+            <tr>
+                <td>@Html.DisplayFor(model => item.ContatoId)</td>
+                <td>@Html.DisplayFor(model => item.Nome)</td>
+                <td>@Html.DisplayFor(model => item.Telefone)</td>
+                <td>@Html.DisplayFor(model => item.Email)</td>
+                <td>@Html.DisplayFor(model => item.Ativo)</td>
+                <td>
+                    <a asp-action="Detalhar" asp-route-id="@item.ContatoId" class="btn btn-dark">Detalhes</a>
+                    <a asp-action="Editar" asp-route-id="@item.ContatoId" class="btn btn-dark">Editar</a>
+                    <a asp-action="Deletar" asp-route-id="@item.ContatoId" class="btn btn-dark">Deletar</a>
+                </td>
+            </tr>
+         }
+    </tbody>
+</table>

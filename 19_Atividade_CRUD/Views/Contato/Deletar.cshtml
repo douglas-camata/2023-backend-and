@@ -1,0 +1,42 @@
+@model CRUD_MVC.Models.Contato
+
+@{
+    ViewData["Title"] = "Exclusão";
+}
+
+<h1>Deseja realmente deletar o contato abaixo?</h1>
+
+<div >
+    <dl class="row">
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.ContatoId)
+        </dt>
+        <dt class="col-10">
+            @Html.DisplayFor(model => model.ContatoId)
+        </dt>
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dt class="col-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dt>
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+        <dt class="col-10">
+            @Html.DisplayFor(model => model.Telefone)
+        </dt>
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dt class="col-10">
+            @Html.DisplayFor(model => model.Email)
+        </dt>
+    </dl>
+</div>
+<form asp-action="Deletar" asp-route-id="@Model.ContatoId">
+    <input type="hidden" asp-for="ContatoId" />
+    <input type="submit" value="Deletar realmente" class="btn btn-danger">
+</form>
+<hr>
+<a asp-action="Index">Voltar</a>

@@ -1,0 +1,38 @@
+@model CRUD_MVC.Models.Contato
+
+@{
+    ViewData["Title"] = "Novo Contato";
+}
+
+<h1>Criar novo contato</h1>
+<hr>
+<div class="row">
+    <div class="col-4">
+        <form asp-action="Criar">
+            <div class="form-floating mb-3">
+                <input type="text" asp-for="Nome" class="form-control" id="Nome" placeholder="" required>
+                <label for="Nome" class="control-label">Nome do Contato</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" asp-for="Telefone" class="form-control" id="Telefone" placeholder="">
+                <label for="Telefone">Telefone</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" asp-for="Email"  class="form-control" id="Email" placeholder="">
+                <label for="Email">Email</label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Ativo" /> @Html.DisplayNameFor(model => model.Ativo)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Criar" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+</div>
+<hr>
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
